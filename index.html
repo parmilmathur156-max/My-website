@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathur | Programmer</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #111;
+      transition: 0.4s;
+    }
+
+    body.dark {
+      background: #0b0b0b;
+      color: white;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, #111, #333);
+      color: white;
+    }
+
+    .hero {
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      margin-bottom: 10px;
+      letter-spacing: 3px;
+    }
+
+    .hero p {
+      font-size: 22px;
+      color: #ccc;
+    }
+
+    .typing {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #00e5ff;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      background: white;
+      color: black;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 80px 25px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 35px;
+      margin-bottom: 25px;
+    }
+
+    section p {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .card {
+      margin-top: 25px;
+      padding: 30px;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: 0.4s;
+    }
+
+    .dark .card {
+      background: #181818;
+      box-shadow: 0 10px 30px rgba(255,255,255,0.05);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .skills {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .skill {
+      padding: 15px 25px;
+      border-radius: 30px;
+      background: #111;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      padding: 25px;
+      text-align: center;
+      background: #111;
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="hero">
+      <h1>Mathur</h1>
+      <p>Professional Programmer</p>
+      <div class="typing">Highly Coded. Always Learning.</div>
+
+      <button onclick="darkMode()">🌙 Dark Mode</button>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+
+    <div class="card">
+      <p>
+        I am Mathur, a professional and passionate programmer.
+        I enjoy technology, coding and creating new digital experiences.
+        My goal is to keep learning and become better at programming.
+      </p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="card">
+      <p>
+        My field of education is programming and technology.
+        I am continuously developing my knowledge and coding abilities.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>My Skills</h2>
+
+    <div class="skills">
+      <div class="skill">💻 Coding</div>
+      <div class="skill">🚀 Programming</div>
+      <div class="skill">🧠 Problem Solving</div>
+      <div class="skill">⚡ Technology</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Mathur | Personal Website</p>
+  </footer>
+
+  <script>
+    function darkMode() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
+
+</body>
+</html>
