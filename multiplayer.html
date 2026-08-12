@@ -1,23 +1,155 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Multiplayer Lobby</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #080812;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 50px 20px 30px;
+    }
+
+    h1 {
+      font-size: 42px;
+      background: linear-gradient(90deg, #00eaff, #a855f7, #ff00cc);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .status {
+      color: #00ff88;
+      font-weight: bold;
+    }
+
+    .lobby {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 30px;
+      background: #121222;
+      border: 1px solid #29294a;
+      border-radius: 20px;
+    }
+
+    input {
+      width: 90%;
+      max-width: 400px;
+      padding: 14px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #202035;
+      color: white;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 14px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #6a5acd, #00bfff);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .players {
+      margin-top: 25px;
+      padding: 20px;
+      background: #0d0d1a;
+      border-radius: 15px;
+    }
+
+    .player {
+      padding: 12px;
+      margin: 8px;
+      background: #19192b;
+      border-radius: 10px;
+    }
+
+    .back {
+      display: inline-block;
+      margin: 30px;
+      color: #00eaff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 
-<body style="background:#080812;color:white;text-align:center;font-family:Arial;">
+<body>
 
-  <h1>🌐 Multiplayer Lobby</h1>
+  <header>
+    <h1>🌐 Multiplayer Lobby</h1>
+    <p class="status">🟢 Server Ready</p>
+  </header>
 
-  <p>Welcome to the multiplayer lobby!</p>
+  <div class="lobby">
 
-  <button>🎮 Create Game</button>
-  <button>🔎 Find Game</button>
+    <h2>🎮 Join the Game</h2>
 
-  <br><br>
+    <input
+      type="text"
+      id="playerName"
+      placeholder="Enter your player name"
+    >
 
-  <a href="projects-main.html" style="color:#00eaff;">
+    <br>
+
+    <button onclick="createGame()">🎮 Create Game</button>
+    <button onclick="joinGame()">🔎 Join Game</button>
+
+    <div class="players">
+      <h2>👥 Players</h2>
+
+      <div class="player">Player 1 — 🟢 Online</div>
+      <div class="player">Player 2 — 🟢 Online</div>
+    </div>
+
+  </div>
+
+  <a href="projects-main.html" class="back">
     ← Back to Gaming Hub
   </a>
+
+  <script>
+    function createGame() {
+      const name = document.getElementById("playerName").value;
+
+      if (name.trim() === "") {
+        alert("Please enter your player name.");
+        return;
+      }
+
+      alert("Game created for " + name + "!");
+    }
+
+    function joinGame() {
+      const name = document.getElementById("playerName").value;
+
+      if (name.trim() === "") {
+        alert("Please enter your player name.");
+        return;
+      }
+
+      alert(name + " joined the lobby!");
+    }
+  </script>
 
 </body>
 </html>
