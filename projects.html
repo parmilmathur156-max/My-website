@@ -1,22 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Projects</title>
+  <title>My Projects - Locked</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0b0b16;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .box {
+      background: #151525;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      width: 300px;
+    }
+
+    h1 {
+      color: #00c6ff;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 15px 0;
+      border-radius: 8px;
+      border: none;
+    }
+
+    button {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #6a5acd, #00bfff);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #error {
+      color: #ff5c5c;
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>My Projects</h1>
+  <div class="box">
+    <h1>🔒 Projects</h1>
+    <p>Enter password to continue</p>
 
-  <h2>Personal Website</h2>
-  <p>
-    A personal portfolio website created using HTML, CSS and JavaScript.
-  </p>
+    <input type="password" id="password" placeholder="Enter password">
 
-  <h2>Project 2</h2>
-  <p>
-    My next coding project will be added here.
-  </p>
+    <br>
+
+    <button onclick="unlock()">Unlock</button>
+
+    <p id="error">❌ Incorrect password</p>
+  </div>
+
+  <script>
+    function unlock() {
+      const password = document.getElementById("password").value;
+
+      if (password === "12345") {
+        window.location.href = "projects-main.html";
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+  </script>
 
 </body>
 </html>
