@@ -2,24 +2,30 @@
 <html>
 <head>
   <title>Battle Arena</title>
+
   <style>
     body {
       margin: 0;
-      overflow: hidden;
       background: #080812;
       color: white;
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       text-align: center;
+      overflow: hidden;
     }
 
     h1 {
-      margin: 15px;
       color: #00eaff;
+      margin: 12px;
+    }
+
+    .info {
+      font-size: 17px;
+      margin: 10px;
     }
 
     #game {
-      width: 90vw;
-      height: 70vh;
+      width: 92vw;
+      height: 65vh;
       max-width: 1000px;
       margin: auto;
       background: #151525;
@@ -39,9 +45,26 @@
       top: 50%;
     }
 
-    .info {
-      margin: 15px;
-      font-size: 18px;
+    .controls {
+      margin-top: 15px;
+    }
+
+    .controls button {
+      width: 65px;
+      height: 55px;
+      margin: 4px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6a5acd, #00bfff);
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      touch-action: manipulation;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
     }
   </style>
 </head>
@@ -58,7 +81,19 @@
     <div id="player"></div>
   </div>
 
-  <p>Use your keyboard to move your player.</p>
+  <div class="controls">
+
+    <div>
+      <button onclick="move(0,-3)">⬆️</button>
+    </div>
+
+    <div class="row">
+      <button onclick="move(-3,0)">⬅️</button>
+      <button onclick="move(0,3)">⬇️</button>
+      <button onclick="move(3,0)">➡️</button>
+    </div>
+
+  </div>
 
   <script>
     const player = document.getElementById("player");
@@ -66,29 +101,30 @@
     let x = 50;
     let y = 50;
 
-    document.addEventListener("keydown", function(event) {
-
-      if (event.key === "ArrowUp" || event.key === "w") {
-        y -= 3;
-      }
-
-      if (event.key === "ArrowDown" || event.key === "s") {
-        y += 3;
-      }
-
-      if (event.key === "ArrowLeft" || event.key === "a") {
-        x -= 3;
-      }
-
-      if (event.key === "ArrowRight" || event.key === "d") {
-        x += 3;
-      }
+    function move(dx, dy) {
+      x += dx;
+      y += dy;
 
       x = Math.max(0, Math.min(95, x));
       y = Math.max(0, Math.min(90, y));
 
       player.style.left = x + "%";
       player.style.top = y + "%";
+    }
+
+    document.addEventListener("keydown", function(event) {
+
+      if (event.key === "ArrowUp" || event.key === "w")
+        move(0, -3);
+
+      if (event.key === "ArrowDown" || event.key === "s")
+        move(0, 3);
+
+      if (event.key === "ArrowLeft" || event.key === "a")
+        move(-3, 0);
+
+      if (event.key === "ArrowRight" || event.key === "d")
+        move(3, 0);
     });
   </script>
 
