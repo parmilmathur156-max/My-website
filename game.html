@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Battle Arena</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #080812;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 15px;
+      color: #00eaff;
+    }
+
+    #game {
+      width: 90vw;
+      height: 70vh;
+      max-width: 1000px;
+      margin: auto;
+      background: #151525;
+      border: 2px solid #00eaff;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #player {
+      width: 35px;
+      height: 35px;
+      background: #00eaff;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+    }
+
+    .info {
+      margin: 15px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>⚔️ BATTLE ARENA</h1>
+
+  <div class="info">
+    ❤️ Health: 100 &nbsp; | &nbsp; 🏆 Score: 0
+  </div>
+
+  <div id="game">
+    <div id="player"></div>
+  </div>
+
+  <p>Use your keyboard to move your player.</p>
+
+  <script>
+    const player = document.getElementById("player");
+
+    let x = 50;
+    let y = 50;
+
+    document.addEventListener("keydown", function(event) {
+
+      if (event.key === "ArrowUp" || event.key === "w") {
+        y -= 3;
+      }
+
+      if (event.key === "ArrowDown" || event.key === "s") {
+        y += 3;
+      }
+
+      if (event.key === "ArrowLeft" || event.key === "a") {
+        x -= 3;
+      }
+
+      if (event.key === "ArrowRight" || event.key === "d") {
+        x += 3;
+      }
+
+      x = Math.max(0, Math.min(95, x));
+      y = Math.max(0, Math.min(90, y));
+
+      player.style.left = x + "%";
+      player.style.top = y + "%";
+    });
+  </script>
+
+</body>
+</html>
